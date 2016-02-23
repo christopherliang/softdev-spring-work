@@ -5,9 +5,7 @@ var canvas = document.getElementById("playground"),
     // Canvas and other variables
     ctx = canvas.getContext("2d"),
     radius = 0,
-    stop = false,
     growing = true,
-    trails = false,
     pColor = "red",
     globalID;
 
