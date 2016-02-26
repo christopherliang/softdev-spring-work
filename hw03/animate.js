@@ -11,12 +11,7 @@ var canvas = document.getElementById("playground"),
     stop = false,
     globalID,
     x = canvas.width/2-40,
-    y = canvas.height/2-22.5,
-    cx = 1.8,
-    cy = -1;
-
-var logo = new Image();
-logo.src="logo_dvd.jpg";
+    y = canvas.height/2-22.5;
 
 // Draw function
 var draw = function() {
@@ -48,6 +43,7 @@ var draw = function() {
     globalID = window.requestAnimationFrame(draw);
 };
 
+//Stops circle and DVD animations
 var stopper = function() {
     if (!stop) {
         stop = !stop;
@@ -56,26 +52,36 @@ var stopper = function() {
     window.cancelAnimationFrame(dvd_image);
 }
 
-var bounce = function() {
-    if (!stop) {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        if ((x >= (canvas.width - 80)) || (x <= 1)) {
-            cx = -cx;
-        }
-        if ((y >= (canvas.height - 45)) || (y <= 1)) {
-            cy = -cy;
-        }
-        x += cx;
-        y += cy;
-    } else {
-        stop = false;
-    }
-    ctx.drawImage(logo,x,y,80,45);
-    dvd_image = window.requestAnimationFrame(bounce);
-}
+//Initializes DVD animation
+var logo_init = function() {
+    var cx = 1.8,
+        cy = -1,
+        logo = new Image();
 
+    logo.src="logo_dvd.jpg";
+    
+    //Propulsion mechanism
+    var bounce = function() {
+        if (!stop) {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            if ((x >= (canvas.width - 80)) || (x <= 1)) {
+                cx = -cx;
+            }
+            if ((y >= (canvas.height - 45)) || (y <= 1)) {
+                cy = -cy;
+            }
+            x += cx;
+            y += cy;
+        } else {
+            stop = false;
+        }
+        ctx.drawImage(logo,x,y,80,45);
+        dvd_image = window.requestAnimationFrame(bounce);
+    }
+    bounce();
+}
 
 //Event listeners
 circlebtn.addEventListener("click", draw);
 stopbtn.addEventListener("click", stopper);
-dvdbtn.addEventListener("click", bounce);
+dvdbtn.addEventListener("click", logo_init);
