@@ -1,0 +1,17 @@
+creating svg elements in js:
+
+document.createElementNS(<NAMESPACE IDENTIFIER>,<ELEMENT>);
+
+creates an element from a specified XML namespace 
+svg example:
+
+var c1 = document.createElementNS("http://www.w3.org/2000/svg","circle");
+
+Once created, you can modifity it with setAttribute calls:
+
+c1.setAttribute("cx","200");
+
+To add the element to your svg container, use the appendChild function
+
+var pic = document.getElementById("svgid");
+pic.appendChild("c1");
