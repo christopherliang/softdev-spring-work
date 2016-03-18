@@ -4,8 +4,14 @@ d3.select(".chart")
     .data(data)
   .enter().append("div")
     .style("width",function(d) { 
-	return d * 10 + "px"; 
+	//return d * 10 + "px"; 
+	return foo(d) + "px";
     })
     .text(function(d) { 
 	return d;
     });
+
+//scale bars
+var foo = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([
