@@ -1,6 +1,6 @@
 // All the document element variables
 var SVGNS = "http://www.w3.org/2000/svg",
-XLINKNS = "http://www.w3.org/1999/xlink";
+    XLINKNS = "http://www.w3.org/1999/xlink";
 
 var pic = document.getElementById("vimage"),
     circlebtn = document.getElementById("circle"),
@@ -19,11 +19,6 @@ var pic = document.getElementById("vimage"),
     cx = 1.8,
     cy = -1;
 
-var change = function(e) {
-    e.preventDefault();
-    this.setAttribute("fill","green");
-};
-
 // Draw function
 var drawDot = function() {
     var c = document.createElementNS(SVGNS,"circle");
@@ -32,18 +27,9 @@ var drawDot = function() {
     c.setAttribute("r",0);
     c.setAttribute("fill","yellow");
     c.setAttribute("stroke","black");
-    //c.addEventListener("click",change);
     pic.appendChild(c);
     grow();
 };
-
-var clicked = function(e) {
-    if (e.toElement == this) {
-        drawDot(e.offsetX,e.offsetY);
-    }
-};
-
-//pic.addEventListener("click",clicked);
 
 var grow = function() {
     var c = document.createElementNS(SVGNS,"circle");
@@ -98,7 +84,7 @@ var logo_init = function() {
     //Propulsion mechanism
     var bounce = function() {
         if (!stop) {
-            if ((x >= 435) || (x <= -10)) {
+            if ((x >= 430) || (x <= -10)) {
                 cx = -cx;
             }
             if ((y >= 460) || (y <= -10)) {

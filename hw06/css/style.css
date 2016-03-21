@@ -1,0 +1,32 @@
+.chart {
+    font: 12px sans-serif;
+    text-align: left;
+    padding: 3px;
+    margin-left: 0%;
+    color: white;
+}
+
+#heading {
+    font: 24px sans-serif;
+}
+
+#key {
+    padding:5px;
+    border: solid 1px black;
+    position:absolute;
+    right:200px;
+    top:200px;
+    text-align:left;
+}
+
+#green {
+    background-color:green;
+    width:10px;
+    height:10px;
+}
+
+#red {
+    background-color:red;
+    width:10px;
+    height:10px;
+}
