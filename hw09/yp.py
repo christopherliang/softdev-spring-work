@@ -1,5 +1,26 @@
 import time 
 
+def name_log(f):
+    def inner(*arg):
+        x = f(*arg)
+        print f 
+
+def randList(n, lower = -100, upper = 100):
+    l = []
+    for i in range(n):
+        l.append(random.randrange(lower,upper))
+    return l
+
+@timer
+@name_log
+def quicksort(g):
+    if len(g) <= 1:
+        return g
+    pivot = random.choice(g)
+    lower = [x for x in g if x < pivot]
+    upper = [x for x in g if x > pivot]
+    return quicksort(lower) + ([pivot] * L.count(pivot)) + quicksort(upper)
+
 def timer( f ):
     start_time = time.time()
     def inner( *arg ):
