@@ -1,0 +1,24 @@
+4/13
+aim: "memorization"[:4] + "memorization"[5:]
+dn: formulate an explanation of the execution time of this algorithm:
+
+def fib(n):
+    if n < 2:
+        return n
+    return fib(n-1) + fib(n-2)
+
+n^2 runtime 
+
+dynamic programming
+(aka "dynamic optimization")
+means of solving a complex problem by solving its component subproblems 
+just once and storing their solutions
+
+memoization
+technique of storing solutions to subproblems to avoid recomputation
+or
+use of caches to retrieve previously computed values to reduce
+time complexity of algorithms
+
+task:
+rewrite fib(n) to employ dynamic programming
